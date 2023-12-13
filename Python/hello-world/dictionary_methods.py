@@ -32,9 +32,3 @@ testable.update(December='-20°C')
 print(testable)  # {'September': '16°C', 'December': '-20°C'}
 
 
-groups = ['1A', '1B', '1C', '2A', '2B', '2C', '3A', '3B', '3C']
-input_1 = int(input("Enter the number of items to change: "))
-for _ in range(input_1):
-    value = input("Enter the value: ")
-    groups[_] = value
-print(groups)

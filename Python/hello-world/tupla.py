@@ -14,8 +14,11 @@ print(c)  # Output: 3
 
 # tuplas são usadas em funções que retornam vários valores
 def get_name_and_age():
-    return "Alice", 30
+    return ("Alice", 30)
 
 name, age = get_name_and_age()
 print(name)  # Output: Alice
 print(age)   # Output: 30
+
+tuple_type = type(my_tuple)
+print(tuple_type)  # Output: <class 'tuple'>

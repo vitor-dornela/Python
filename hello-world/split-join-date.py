@@ -4,3 +4,7 @@
 date_input = input()
 date_split = date_input.split("-")
 print("\n".join(date_split))
+
+
+print("\n".join(input().split("-")))
+

@@ -25,4 +25,19 @@ except TypeError:
 
 # Separators will overwrite the default space
 poem = ['The night', 'the pharmacy', 'the street', 'the pointless lamppost in the mist']
-print(*poem, sep=', ', end='.')
+print(*poem, sep=', ', end='.\n')
+
+line1 = "Night, square, apothecary, lantern,"
+line2 = "Its meaningless and pallid light."
+line3 = "Return a half a lifetime after –"
+line4 = "All will remain. A scapeless rite."
+
+lines = [line1, line2, line3, line4]
+
+# Printed in a multiple lines
+for line in lines:
+    print(*line, sep="") # line is a string
+
+# Printed in a single line
+print(*lines) # The default separator is a space
+

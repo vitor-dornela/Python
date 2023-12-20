@@ -27,6 +27,9 @@ except TypeError:
 poem = ['The night', 'the pharmacy', 'the street', 'the pointless lamppost in the mist']
 print(*poem, sep=', ', end='.\n')
 
+name = ['M', 'A', 'R', 'C', 'O']
+print(*name, sep="-", end="!")
+
 line1 = "Night, square, apothecary, lantern,"
 line2 = "Its meaningless and pallid light."
 line3 = "Return a half a lifetime after –"
@@ -41,3 +44,7 @@ for line in lines:
 # Printed in a single line
 print(*lines) # The default separator is a space
 
+string = 'test'
+
+for spacing in range(0, 5):
+    print(*string, sep=' ' * spacing)

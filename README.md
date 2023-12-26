@@ -2,8 +2,8 @@
 
 ## hello-world
 
-This is the repository I upload what I learn in Python.
+Interesting things that I learned in Python.
 
 ## data-science
 
-This is the repository I upload what I learn about DS Python librarie.
+Knowledge about DS Python libraries.

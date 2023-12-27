@@ -2,8 +2,8 @@
 
 ## hello-world
 
-Interesting things that I learned in Python.
+Reinforced learning about topics in Python.
 
 ## data-science
 
-Knowledge about DS Python libraries.
+Knowledge repository about DS Python libraries.

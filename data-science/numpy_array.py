@@ -48,3 +48,37 @@ array_a = np.array([[1, 2], [3, 4]])
 list_a = array_a.tolist()
 print("\nArray: \n", array_a)
 print("\nList converted from array: \n", list_a)
+
+# Indexing arrays
+array_12 = np.array([[1, 12, 31], [4, 45, 64], [0, 7, 89]])
+print("\Efficient indexing: \n",array_12[2, 2])  # 89 => more efficient
+print("\Inefficient indexing: \n",array_12[2][2])  # 89 => less efficient, it creates a temporary array subsenquently indexed by 2
+
+
+# Slicing arrays
+
+array_15 = np.array([
+                [[1, 2, 3, 4, 5],
+                 [6, 7, 8, 9, 10]],
+                [[11, 12, 13, 14, 15],
+                 [16, 17, 18, 19, 20]]
+                 ])
+print("\nArray slices: \n",array_15[-1, :, 1:4]) # 1st dimension is the last one, 2nd dimension is all, 3rd dimension is from 1 to 4
+# [[12 13 14]
+#  [17 18 19]]
+print("\nArray slices: \n",array_15[0, :, 1:4])
+# [[2 3 4]
+#  [7 8 9]]
+
+# two-dimensional array
+array_16 = np.array([
+                [1, 2, 3, 4, 5],
+                [5, 4, 3, 2, 1],
+                [6, 7, 8, 9, 10],
+                [10, 9, 8, 7, 6],
+                [11, 12, 13, 14, 15]
+                ])
+print(array_16[::2, ::2])  # start:stop:step
+# [[ 1  3  5]
+#  [ 6  8 10]
+#  [11 13 15]]

@@ -45,9 +45,6 @@ ax2.plot(x, y2, c='g', linewidth=2)
 plt.show()   
 
 
-
-import matplotlib.pyplot as plt
-
 fig, ax = plt.subplots()
 plt.close()
 

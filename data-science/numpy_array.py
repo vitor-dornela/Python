@@ -12,6 +12,7 @@ print("\nArray type: \n", type(first))                 # <class 'numpy.ndarray'>
 list_a = [1, 2, 3, 4]
 array_a = np.array(list_a)
 
+
 print("\nList multiplication: \n", list_a * 3)                      # [1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3,4]
 print("\nArray multiplication: \n", array_a * 3)                     # [ 3  6  9 12]
 

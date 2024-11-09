@@ -15,10 +15,16 @@ def main():
         '9': 6,
     }
 
+    outputs = []
+
     for _ in range(N):
         numero = input().strip()
         total_leds = sum(leds_por_digito[d] for d in numero)
-        print(f"{total_leds} leds")
+        outputs.append(f"{total_leds} leds")
+
+    # Imprimir todas as respostas após ler todos os inputs
+    for output in outputs:
+        print(output)
 
 if __name__ == "__main__":
     main()

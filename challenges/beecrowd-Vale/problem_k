@@ -1,0 +1,40 @@
+# Escreva a sua solução aqui
+# Code your solution here
+# Escriba su solución aquí
+
+def main():
+    N = int(input())
+    lines = []
+    for _ in range(N):
+        line = input()
+        lines.append(line)
+    outputs = []
+    for line in lines:
+        # Primeira passada: deslocar letras 3 posições para a direita
+        first_pass = []
+        for c in line:
+            if c.isalpha():
+                c = chr(ord(c) + 3)
+            first_pass.append(c)
+        first_pass_line = ''.join(first_pass)
+        
+        # Segunda passada: inverter a linha
+        second_pass_line = first_pass_line[::-1]
+        
+        # Terceira passada: deslocar caracteres da metade em diante uma posição para a esquerda
+        len_line = len(second_pass_line)
+        half = len_line // 2
+        third_pass = list(second_pass_line)
+        for i in range(half, len_line):
+            c = third_pass[i]
+            c = chr(ord(c) - 1)
+            third_pass[i] = c
+        final_line = ''.join(third_pass)
+        outputs.append(final_line)
+    
+    # Imprimir todas as respostas após ler todos os inputs
+    for output in outputs:
+        print(output)
+
+if __name__ == '__main__':
+    main()

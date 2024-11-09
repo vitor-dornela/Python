@@ -1,0 +1,40 @@
+import sys
+import re
+
+def classify_difficulty(average_length):
+    """Classifica a dificuldade com base no comprimento médio das palavras."""
+    if average_length == 0 or average_length <= 3:
+        return 250
+    elif 4 <= average_length <= 5:
+        return 500
+    else:
+        return 1000
+
+def calculate_average_word_length(text):
+    """Calcula o comprimento médio das palavras válidas em uma string."""
+    # Extrai palavras válidas: Apenas letras, podendo terminar com um ponto
+    words = re.findall(r'\b[A-Za-z]+\b', text)
+    if not words:
+        return 0
+
+    total_length = sum(len(word) for word in words)
+    average_length = total_length // len(words)
+    return average_length
+
+def main():
+    results = []
+    for line in sys.stdin:
+        line = line.strip()
+        if not line:
+            continue
+        
+        average_length = calculate_average_word_length(line)
+        difficulty = classify_difficulty(average_length)
+        results.append(difficulty)
+
+    # Imprime todas as saídas ao final
+    for result in results:
+        print(result)
+
+if __name__ == "__main__":
+    main()

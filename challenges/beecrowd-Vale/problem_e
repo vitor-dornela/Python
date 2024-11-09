@@ -1,0 +1,75 @@
+import sys
+
+def main():
+    sys.setrecursionlimit(1000000)  # Aumentar o limite de recursão, se necessário
+
+    resultados = []
+
+    while True:
+        # Ler m e n
+        line = sys.stdin.readline()
+        if not line:
+            break
+        m_n = line.strip().split()
+        if len(m_n) < 2:
+            continue
+        m, n = map(int, m_n)
+        if m == 0 and n == 0:
+            break
+
+        m = int(m)
+        n = int(n)
+        total_cost = 0
+        edges = []
+
+        # Ler as estradas e calcular o custo total
+        for _ in range(n):
+            x, y, z = map(int, sys.stdin.readline().strip().split())
+            total_cost += z
+            edges.append((z, x, y))
+
+        # Ordenar as estradas pelo comprimento (custo)
+        edges.sort()
+
+        # Inicializar a estrutura Union-Find
+        parent = [i for i in range(m)]
+        rank = [0] * m
+
+        # Função find com compressão de caminho
+        def find(u):
+            if parent[u] != u:
+                parent[u] = find(parent[u])
+            return parent[u]
+
+        # Função union com união por rank
+        def union(u, v):
+            u_root = find(u)
+            v_root = find(v)
+            if u_root == v_root:
+                return False
+            if rank[u_root] < rank[v_root]:
+                parent[u_root] = v_root
+            else:
+                parent[v_root] = u_root
+                if rank[u_root] == rank[v_root]:
+                    rank[u_root] += 1
+            return True
+
+        # Kruskal's algorithm para encontrar a MST
+        mst_cost = 0
+        for z, x, y in edges:
+            if union(x, y):
+                mst_cost += z
+
+        # Calcular a economia máxima
+        saving = total_cost - mst_cost
+
+        # Armazenar o resultado
+        resultados.append(saving)
+
+    # Imprimir todos os resultados ao final
+    for saving in resultados:
+        print(saving)
+
+if __name__ == '__main__':
+    main()

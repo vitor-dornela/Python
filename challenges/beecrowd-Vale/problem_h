@@ -1,0 +1,21 @@
+import sys
+
+def main():
+    inputs = []
+    for line in sys.stdin:
+        line = line.strip()
+        if line == '':
+            continue
+        N = int(line)
+        inputs.append(N)
+    outputs = []
+    for N in inputs:
+        if N == 0:
+            outputs.append("vai ter copa!")
+        else:
+            outputs.append("vai ter duas!")
+    for output in outputs:
+        print(output)
+
+if __name__ == '__main__':
+    main()

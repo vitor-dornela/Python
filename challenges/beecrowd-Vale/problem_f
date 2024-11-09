@@ -1,0 +1,62 @@
+# Ler o número de matrizes
+N = int(input())
+
+# Começar a contagem em x = 4
+x = 4
+
+# Lista para armazenar as saídas formatadas de todas as matrizes
+matrizes_formatadas = []
+
+for _ in range(N):
+    # Ler o tamanho da matriz
+    M = int(input())
+    matriz = []
+
+    # Ler a matriz e calcular o quadrado de cada elemento
+    for _ in range(M):
+        linha = list(map(int, input().split()))
+        linha_quadrada = [num ** 2 for num in linha]
+        matriz.append(linha_quadrada)
+
+    # Calcular o comprimento máximo de cada coluna
+    max_width = [0] * M
+    for j in range(M):
+        for i in range(M):
+            num_length = len(str(matriz[i][j]))
+            if num_length > max_width[j]:
+                max_width[j] = num_length
+
+    # Armazenar o cabeçalho e as linhas formatadas da matriz
+    matriz_output = []
+    matriz_output.append(f"Quadrado da matriz #{x}:")
+
+    # Gerar as linhas formatadas da matriz
+    for i in range(M):
+        linha_formatada = ""
+        for j in range(M):
+            num_str = str(matriz[i][j])
+            # Calcular o número de espaços para alinhar à direita
+            spaces = max_width[j] - len(num_str)
+            # Se o número tiver o comprimento máximo na coluna, não adicionar espaços extras
+            if len(num_str) == max_width[j]:
+                spaces = 0
+            else:
+                spaces = max_width[j] - len(num_str)
+            # Adicionar um espaço obrigatório entre colunas (exceto antes do primeiro elemento)
+            if j != 0:
+                linha_formatada += ' '
+            # Adicionar os espaços calculados antes do número
+            linha_formatada += ' ' * spaces + num_str
+        matriz_output.append(linha_formatada)
+    # Incrementar o contador de matrizes
+    x += 1
+    # Adicionar a matriz formatada à lista de saídas
+    matrizes_formatadas.append(matriz_output)
+
+# Imprimir todas as matrizes ao final, separadas por um espaço
+for idx, matriz_output in enumerate(matrizes_formatadas):
+    for linha in matriz_output:
+        print(linha)
+    # Adicionar um espaço entre matrizes, exceto após a última
+    if idx != len(matrizes_formatadas) - 1:
+        print()

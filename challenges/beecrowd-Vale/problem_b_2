@@ -1,0 +1,21 @@
+# Ler o número de casos de teste
+N = int(input())
+resultados = []
+
+for _ in range(N):
+    linha = input()
+    pilha = []
+    diamantes = 0
+
+    # Percorrer cada caractere na linha de entrada
+    for caractere in linha:
+        if caractere == '<':
+            pilha.append('<')
+        elif caractere == '>' and pilha:
+            pilha.pop()
+            diamantes += 1
+    resultados.append(diamantes)
+
+# Imprimir os resultados após processar todos os casos de teste
+for diamantes in resultados:
+    print(diamantes)

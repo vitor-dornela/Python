@@ -1,0 +1,50 @@
+def mdc(a, b):
+    """Função para calcular o máximo divisor comum (MDC) entre dois números."""
+    while b != 0:
+        a, b = b, a % b
+    return a
+
+# Ler o número de casos de teste
+N = int(input())
+resultados = []
+
+for _ in range(N):
+    # Ler a linha de entrada e separar os elementos
+    entrada = input().split()
+    n1 = int(entrada[0])
+    d1 = int(entrada[2])
+    operador = entrada[3]
+    n2 = int(entrada[4])
+    d2 = int(entrada[6])
+
+    # Realizar a operação
+    if operador == '+':
+        numerador = n1 * d2 + n2 * d1
+        denominador = d1 * d2
+    elif operador == '-':
+        numerador = n1 * d2 - n2 * d1
+        denominador = d1 * d2
+    elif operador == '*':
+        numerador = n1 * n2
+        denominador = d1 * d2
+    elif operador == '/':
+        numerador = n1 * d2
+        denominador = n2 * d1
+
+    # Simplificar a fração
+    divisor_comum = mdc(abs(numerador), abs(denominador))
+    simpl_numerador = numerador // divisor_comum
+    simpl_denominador = denominador // divisor_comum
+
+    # Ajustar o sinal do denominador
+    if simpl_denominador < 0:
+        simpl_denominador *= -1
+        simpl_numerador *= -1
+
+    # Armazenar o resultado
+    resultado = f"{numerador}/{denominador} = {simpl_numerador}/{simpl_denominador}"
+    resultados.append(resultado)
+
+# Imprimir todos os resultados após processar todos os casos de teste
+for resultado in resultados:
+    print(resultado)

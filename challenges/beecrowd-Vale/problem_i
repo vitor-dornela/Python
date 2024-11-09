@@ -1,0 +1,40 @@
+# Ler o número de casos de teste
+N = int(input())
+outputs = []
+
+for _ in range(N):
+    # Ler M e C
+    M_C = input().split()
+    while len(M_C) < 2:
+        M_C += input().split()
+    M = int(M_C[0])
+    C = int(M_C[1])
+
+    # Inicializar a tabela hash
+    tabela_hash = [[] for _ in range(M)]
+
+    # Ler as chaves
+    chaves = []
+    while len(chaves) < C:
+        chaves += list(map(int, input().split()))
+    
+    # Inserir as chaves na tabela hash
+    for chave in chaves:
+        endereco = chave % M
+        tabela_hash[endereco].append(chave)
+    
+    # Gerar a saída para este caso de teste
+    saida = []
+    for i in range(M):
+        linha = f"{i} ->"
+        for chave in tabela_hash[i]:
+            linha += f" {chave} ->"
+        linha += " \\"
+        saida.append(linha)
+    
+    outputs.extend(saida)
+    outputs.append("")  # Linha em branco entre casos de teste
+
+# Imprimir todas as saídas ao final
+for linha in outputs[:-1]:  # Remover a última linha em branco extra
+    print(linha)

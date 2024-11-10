@@ -2,7 +2,6 @@ import sys
 
 def main():
     sys.setrecursionlimit(1000000)  # Aumentar o limite de recursão, se necessário
-
     resultados = []
 
     while True:

@@ -1,5 +1,5 @@
-#import sys
-#input = sys.stdin.read
+import sys
+input = sys.stdin.read
 
 data = input().splitlines()
 N = int(data[0])
